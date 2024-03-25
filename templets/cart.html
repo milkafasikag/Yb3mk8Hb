@@ -37,7 +37,7 @@
 <div id="top">
 <div class="container">
 <div class="row">
-<div class="col-lg-6 offer mb-3 mb-lg-0"><a class="btn btn-success btn-sm" href="#">Offer of the day</a><a class="ml-1" href="#">Get flat 35% off on orders over $50!</a></div>
+  <div class="col-lg-6 offer mb-3 mb-lg-0"><a href="#"></a><a class="ml-1" href="#"></a></div>
 <div class="col-lg-6 text-center text-lg-right">
 <ul class="menu list-inline mb-0">
 
@@ -144,18 +144,21 @@
                   <tbody>
                     {% for i in order %}
                     <tr>
-                      <td><a href="#"><img src="{{i.0.item.images.all.0.image.url}}" alt="White Blouse Armani"></a></td>
-                      <td><a href="#">{{i.0.item.name}}</a></td>
+                      <td><a href="{% url 'web:shop' %}?type={{ i.id }}"><img src="{{i.0.item.images.all.0.image.url}}" alt="White Blouse Armani"></a></td>
+                      <td><a href="{% url 'web:shop' %}?type={{ i.id }}">{{i.0.item.name}}</a></td>
+
                       <td>
                         <form method="post">
                           {% csrf_token %} 
                           <input type="text" name="id" value="{{i.0.id}}" hidden>
-                          <input type="number" name="qunt" value="{{ i.0.quntity }}" style="width: 80px;"><br>
-                        <br>
-                        <button type="submit" class="btn btn-primary">change</button>
+                          <input type="number" name="qunt" value="{{i.0.quntity}}" style="width: 80px;">
+                          <br>
+                          <br>
+                          <button type="submit" class="btn btn-primary">Change</button>
                         </form>
                       </td>
-                      <td>
+
+                       <td>
                         {% if i.0.item.disc > 0 %}
                         {% with discounted_price=i.0.item.price|calculate_discounted_price:i.0.item.disc|floatformat:2 %}
                         <ins>{{ discounted_price }} birr<br> <del>{{i.0.item.price}} </del> </ins>
@@ -323,40 +326,41 @@
       </div>
       <!-- /.col-lg-3-->
       <div class="col-lg-3 col-md-6">
-      <h4 class="mb-3" id="h4_3"></h4>
-      <h5 id="h5_2"></h5>
-      <ul class="list-unstyled">
-      {% for i in type %}
-      <li ><a href="{% url 'web:shop' %}?type={{ i.id }}">{{i.name}}</a></li>
-      {% endfor %}
-      
-      <!--  -->
-      </ul>
-      <!--  -->
-      </div>
-      <!-- /.col-lg-3-->
-      <div class="col-lg-3 col-md-6">
-      <h4 class="mb-3" id="h4_4"></h4>
-      <p id="p_14"></p><a href="contact.html">Go to contact page</a>
-      <hr class="d-block d-md-none"/>
-      </div>
-      <!-- /.col-lg-3-->
-      <div class="col-lg-3 col-md-6">
-      <h4 class="mb-3" id="h4_5"></h4>
-      <p class="text-muted" id="p_15"></p>
-      <form>
-      <div class="input-group">
-        <form method="post" action="{% url 'web:collect_email' %}">
-      
-          {% csrf_token %}
-           <input type="email" name="email" placeholder="Enter your mail" class="form-control" >
-          <button type="submit" class="btn btn-outline-secondary">Subscribe!</a>
-              </form>
-            </div>
-      <!-- /input-group-->
-          </form>
-      <hr/>
-      <h4 class="mb-3" id="h4_6"></h4>
+        <h4 class="mb-3" id="h4_3">Top categories</h4>
+        <h5 id="h5_2">Men</h5>
+        <ul class="list-unstyled">
+        {% for i in type %}
+        <li ><a href="{% url 'web:shop' %}?type={{ i.id }}">{{i.name}}</a></li>
+        {% endfor %}
+        
+        <!--  -->
+        </ul>
+        <!--  -->
+        </div>
+        <!-- /.col-lg-3-->
+        <div class="col-lg-3 col-md-6">
+        <h4 class="mb-3" id="h4_4">Where to find us</h4>
+        <p id="p_14">Obaju Ltd.13/25 New AvenueNew Heaven45Y 73JEnglandGreat Britain</p><a href="contact.html">Go to contact page</a>
+        <hr class="d-block d-md-none"/>
+        </div>
+        <!-- /.col-lg-3-->
+        <div class="col-lg-3 col-md-6">
+        <h4 class="mb-3" id="h4_5">Get the news</h4>
+        <p class="text-muted" id="p_15">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+        <form>
+        <div class="input-group">
+          <form method="post" action="{% url 'web:collect_email' %}">
+        
+            {% csrf_token %}
+             <input type="email" name="email" placeholder="Enter your mail" class="form-control" >
+            <button type="submit" class="btn btn-outline-secondary">Subscribe!</a>
+                </form>
+              </div>
+        <!-- /input-group-->
+            </form>
+        <hr/>
+        <h4 class="mb-3" id="h4_6">Stay in touch</h4>
+        
       
       
       {% for socilamedia in social %}
@@ -441,6 +445,9 @@
       <script src="{% static 'vendor/owl.carousel/owl.carousel.min.js' %}"></script>
       <script src="{% static 'vendor/owl.carousel2.thumbs/owl.carousel2.thumbs.js' %}"></script>
       <script src="{% static 'js/front.js' %}"></script>
+
+
+      
       </div><script src="{% static 'webfunction.js' %}"></script><script>
           document.addEventListener('DOMContentLoaded', function () {
               // Iterate over each key in the JSON data

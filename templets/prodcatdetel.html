@@ -37,7 +37,7 @@
 <div id="top">
 <div class="container">
 <div class="row">
-<div class="col-lg-6 offer mb-3 mb-lg-0"><a class="btn btn-success btn-sm" href="#">Offer of the day</a><a class="ml-1" href="#">Get flat 35% off on orders over $50!</a></div>
+<div class="col-lg-6 offer mb-3 mb-lg-0"><a href="#"></a><a class="ml-1" href="#"></a></div>
 <div class="col-lg-6 text-center text-lg-right">
 <ul class="menu list-inline mb-0">
 
@@ -133,26 +133,37 @@
               *** MENUS AND FILTERS ***
               _________________________________________________________
               -->
-             <div class="card sidebar-menu mb-4">
+             <!-- <div class="card sidebar-menu mb-4">
                 <div class="card-header">
                   <h3 class="h4 card-title">Categories</h3>
-                </div>
+                  </div>
                 <div class="card-body">
-                  <!-- <ul class="nav nav-pills flex-column category-menu"> -->
+                  <ul class="nav nav-pills flex-column category-menu">
                   <ul class="list-unstyled">
-                        {% for i in type %}
-           <li ><a href="{% url 'web:shop' %}?type={{ i.id }}">{{i.name}}</a></li>
-                     {% endfor %}
+                    {% for i in type %}
+                    <li ><a href="{% url 'web:shop' %}?type={{ i.id }}">{{i.name}}</a></li>
+                              {% endfor %}
                       </ul>
                     </li>
                   </ul>
                 </div>
-              </div>
-            
-      
-            
-                
-              <!-- *** MENUS AND FILTERS END ***-->
+              </div> -->
+              <div class="card sidebar-menu mb-4">
+                <div class="card-header">
+                  <h3 class="h4 card-title">Categories</h3>
+                </div>
+                <div>
+                  <ul>
+                           {% for i in type %}
+                          <li ><a href="{% url 'web:shop' %}?type={{ i.id }}">{{i.name}}</a></li>
+                                {% endfor %}
+                              
+                              </ul> 
+
+                      </div>
+                  </div>
+
+             <!-- *** MENUS AND FILTERS END ***-->
               <div class="banner"><a href="#"><img src="{{ item.images.all.0.image.url }}" alt="sales 2014" class="img-fluid"></a></div>
             </div>
             <div class="col-lg-9 order-1 order-lg-2">
@@ -289,40 +300,41 @@
       </div>
       <!-- /.col-lg-3-->
       <div class="col-lg-3 col-md-6">
-      <h4 class="mb-3" id="h4_3"></h4>
-      <h5 id="h5_2"></h5>
-      <ul class="list-unstyled">
-      {% for i in type %}
-      <li ><a href="{% url 'web:shop' %}?type={{ i.id }}">{{i.name}}</a></li>
-      {% endfor %}
-      
-      <!--  -->
-      </ul>
-      <!--  -->
-      </div>
-      <!-- /.col-lg-3-->
-      <div class="col-lg-3 col-md-6">
-      <h4 class="mb-3" id="h4_4"></h4>
-      <p id="p_14"></p><a href="contact.html">Go to contact page</a>
-      <hr class="d-block d-md-none"/>
-      </div>
-      <!-- /.col-lg-3-->
-      <div class="col-lg-3 col-md-6">
-      <h4 class="mb-3" id="h4_5"></h4>
-      <p class="text-muted" id="p_15"></p>
-      <form>
-      <div class="input-group">
-        <form method="post" action="{% url 'web:collect_email' %}">
-      
-          {% csrf_token %}
-           <input type="email" name="email" placeholder="Enter your mail" class="form-control" >
-          <button type="submit" class="btn btn-outline-secondary">Subscribe!</a>
-              </form>
-            </div>
-      <!-- /input-group-->
-          </form>
-      <hr/>
-      <h4 class="mb-3" id="h4_6"></h4>
+        <h4 class="mb-3" id="h4_3">Top categories</h4>
+        <h5 id="h5_2">Men</h5>
+        <ul class="list-unstyled">
+        {% for i in type %}
+        <li ><a href="{% url 'web:shop' %}?type={{ i.id }}">{{i.name}}</a></li>
+        {% endfor %}
+        
+        <!--  -->
+        </ul>
+        <!--  -->
+        </div>
+        <!-- /.col-lg-3-->
+        <div class="col-lg-3 col-md-6">
+        <h4 class="mb-3" id="h4_4">Where to find us</h4>
+        <p id="p_14">Obaju Ltd.13/25 New AvenueNew Heaven45Y 73JEnglandGreat Britain</p><a href="contact.html">Go to contact page</a>
+        <hr class="d-block d-md-none"/>
+        </div>
+        <!-- /.col-lg-3-->
+        <div class="col-lg-3 col-md-6">
+        <h4 class="mb-3" id="h4_5">Get the news</h4>
+        <p class="text-muted" id="p_15">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+        <form>
+        <div class="input-group">
+          <form method="post" action="{% url 'web:collect_email' %}">
+        
+            {% csrf_token %}
+             <input type="email" name="email" placeholder="Enter your mail" class="form-control" >
+            <button type="submit" class="btn btn-outline-secondary">Subscribe!</a>
+                </form>
+              </div>
+        <!-- /input-group-->
+            </form>
+        <hr/>
+        <h4 class="mb-3" id="h4_6">Stay in touch</h4>
+        
       
       
       {% for socilamedia in social %}
