@@ -164,7 +164,7 @@
                   </div>
 
              <!-- *** MENUS AND FILTERS END ***-->
-              <div class="banner"><a href="#"><img src="{{ item.images.all.0.image.url }}" alt="sales 2014" class="img-fluid"></a></div>
+              <div class="banner"><a href="{% url 'shop:item_detail' item_id=item1.id %}"><img src="{{ item.images.all.0.image.url }}" alt="sales 2014" class="img-fluid"></a></div>
             </div>
             <div class="col-lg-9 order-1 order-lg-2">
               <div id="productMain" class="row">
@@ -243,10 +243,10 @@
                   <div class="product same-height">
                     <div class="flip-container">
                       <div class="flipper">
-                        <div class="front"><a href="detail.html"><img src="{{ item.images.all.0.image.url }}" alt="" class="img-fluid"></a></div>
-                        <div class="back"><a href="detail.html"><img src="{{ item.images.all.1.image.url }}" alt="" class="img-fluid"></a></div>
+                        <div class="front"><a href="{% url 'shop:item_detail' item_id=item1.id %}"><img src="{{ item.images.all.0.image.url }}" alt="" class="img-fluid"></a></div>
+                        <div class="back"><a href="{% url 'shop:item_detail' item_id=item1.id %}"><img src="{{ item.images.all.1.image.url }}" alt="" class="img-fluid"></a></div>
                       </div>
-                    </div><a href="detail.html" class="invisible"><img src="{{ item.images.all.0.image.url }}" alt="" class="img-fluid"></a>
+                    </div><a href="{% url 'shop:item_detail' item_id=item1.id %}" class="invisible"><img src="{{ item.images.all.0.image.url }}" alt="" class="img-fluid"></a>
                     <div class="text">
                       <h3>{{item1.name}}</h3>
                       <p class="price">
