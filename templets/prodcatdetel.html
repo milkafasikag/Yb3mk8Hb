@@ -81,7 +81,7 @@
 <div class="container"><a class="navbar-brand home" href="{% url 'web:index' %}"><img alt="Obaju logo" class="d-none d-md-inline-block" src="{% get_image_url 8 %}"/><img alt="Obaju logo" class="d-inline-block d-md-none" src="{% get_image_url 9 %}"/><span class="sr-only">Obaju - go to homepage</span></a>
 <div class="navbar-buttons">
 <button class="btn btn-outline-secondary navbar-toggler" data-target="#navigation" data-toggle="collapse" type="button"><span class="sr-only">Toggle navigation</span><i class="fa fa-align-justify"></i></button>
-<button class="btn btn-outline-secondary navbar-toggler" data-target="#search" data-toggle="collapse" type="button"><span class="sr-only">Toggle search</span><i class="fa fa-search"></i></button><a class="btn btn-outline-secondary navbar-toggler" href="{% url 'shop:cart_list' %}"><i class="fa fa-shopping-cart"></i></a>
+<button class="btn btn-outline-secondary navbar-toggler" data-target="#search" data-toggle="collapse" type="submit"><span class="sr-only">Toggle search</span><i class="fa fa-search"></i></button><a class="btn btn-outline-secondary navbar-toggler" href="{% url 'shop:cart_list' %}"><i class="fa fa-shopping-cart"></i></a>
 </div>
 <div class="collapse navbar-collapse" id="navigation">
 <ul class="navbar-nav mr-auto">
@@ -155,7 +155,7 @@
                 <div>
                   <ul>
                            {% for i in type %}
-                          <li ><a href="{% url 'web:shop' %}?type={{ i.id }}">{{i.name}}</a></li>
+                          <li ><a href="{% url 'web:shop' %}?type={{ i.id }}" style="color: black;">{{i.name}}</a></li>
                                 {% endfor %}
                               
                               </ul> 
@@ -164,7 +164,7 @@
                   </div>
 
              <!-- *** MENUS AND FILTERS END ***-->
-              <div class="banner"><a href="#"><img src="{{ item.images.all.0.image.url }}" alt="sales 2014" class="img-fluid"></a></div>
+              <div class="banner"><a href="{% url 'shop:item_detail' item_id=item.id %}"><img src="{{ item.images.all.0.image.url }}" alt="sales 2014" class="img-fluid"></a></div>
             </div>
             <div class="col-lg-9 order-1 order-lg-2">
               <div id="productMain" class="row">
@@ -185,7 +185,7 @@
                 <div class="col-md-6">
                   <div class="box">
                     <h1 class="text-center">{{item.name}} <br>{{item.type}}</h1>
-                    <p class="goToDescription"><a href="#details" class="scroll-to">Scroll to product details, material &amp; care and sizing</a></p>
+                    <p class="goToDescription"><a href="{% url 'shop:item_detail' item_id=item.id %}" class="scroll-to">Scroll to product details, material &amp; care and sizing</a></p>
                     <p class="price">
                       {% if item.disc > 0 %}
 												{% with discounted_price=item.price|calculate_discounted_price:item.disc|floatformat:2 %}
@@ -218,7 +218,7 @@
               <div id="details" class="box">
                 <p></p>
                 <h4>Product details</h4>
-                <p class="goToDescription"><a href="#details" class="scroll-to">Scroll to product details, material &amp; care and sizing</a></p>
+                <p class="goToDescription"><a href="{% url 'shop:item_detail' item_id=item.id %}" class="scroll-to">Scroll to product details, material &amp; care and sizing</a></p>
                 
                 
                 <!-- <div class="social">
@@ -285,7 +285,7 @@
         <li class="nav-item dropdown menu-large"><a class="nav-link active" href="{% url 'web:index' %}">Home</a></li>
         <li class="nav-item dropdown menu-large"><a class=" nav-link" href="{% url 'web:shop' %}">Shop</a></li>
         <li class="nav-item dropdown menu-large" ><a class="nav-link" href="{% url 'shop:purchesed_list' %}">Order List</a></li>
-        <li class="nav-item dropdown menu-large"><a class="nav-link" href="contact.html">Contact</a></li>
+        <li class="nav-item dropdown menu-large"><a class="nav-link" href="{% url 'web:contact' %}">Contact</a></li>
       </ul>
       <hr/>
       <h4 class="mb-3" id="h4_2"></h4>
@@ -314,7 +314,7 @@
         <!-- /.col-lg-3-->
         <div class="col-lg-3 col-md-6">
         <h4 class="mb-3" id="h4_4">Where to find us</h4>
-        <p id="p_14">Obaju Ltd.13/25 New AvenueNew Heaven45Y 73JEnglandGreat Britain</p><a href="contact.html">Go to contact page</a>
+        <p id="p_14">Obaju Ltd.13/25 New AvenueNew Heaven45Y 73JEnglandGreat Britain</p><a href="{% url 'web:contact' %}">Go to contact page</a>
         <hr class="d-block d-md-none"/>
         </div>
         <!-- /.col-lg-3-->
