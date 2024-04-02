@@ -105,7 +105,7 @@
 <div class="input-group">
 <input class="form-control" placeholder="Search" name="search" type="text"/>
 <div class="input-group-append">
-<button class="btn btn-primary" type="button"><i class="fa fa-search"></i></button>
+<button class="btn btn-primary" type="submit"><i class="fa fa-search"></i></button>
 </div>
 </div>
 </form>
@@ -139,21 +139,21 @@
 <div class="col-md-4">
 <div class="box clickable d-flex flex-column justify-content-center mb-0 h-100">
 <div class="icon"><i class="fa fa-heart"></i></div>
-<h3 id="h3_1"></h3>
+<h3><a href="{% url 'web:shop' %}">We love our customers</a></h3>
 <p class="mb-0" id="p_4"></p>
 </div>
 </div>
 <div class="col-md-4">
 <div class="box clickable d-flex flex-column justify-content-center mb-0 h-100">
 <div class="icon"><i class="fa fa-tags"></i></div>
-<h3 id="h3_2"></h3>
+<h3><a href="{% url 'web:shop' %}">Best prices</a></h3>
 <p class="mb-0" id="p_5"></p>
 </div>
 </div>
 <div class="col-md-4">
 <div class="box clickable d-flex flex-column justify-content-center mb-0 h-100">
 <div class="icon"><i class="fa fa-thumbs-up"></i></div>
-<h3 id="h3_3"></h3>
+<h3><a href="{% url 'web:shop' %}">100% satisfaction guaranteed</a></h3>
 <p class="mb-0" id="p_6"></p>
 </div>
 </div>
@@ -314,7 +314,7 @@
   <li class="nav-item dropdown menu-large"><a class="nav-link active" href="{% url 'web:index' %}">Home</a></li>
   <li class="nav-item dropdown menu-large"><a class=" nav-link" href="{% url 'web:shop' %}">Shop</a></li>
   <li class="nav-item dropdown menu-large" ><a class="nav-link" href="{% url 'shop:purchesed_list' %}">Order List</a></li>
-  <li class="nav-item dropdown menu-large"><a class="nav-link" href="contact.html">Contact</a></li>
+  <li class="nav-item dropdown menu-large"><a class="nav-link" href="{% url 'web:contact' %}">Contact</a></li>
 </ul>
 <hr/>
 <h4 class="mb-3" id="h4_2"></h4>
@@ -343,7 +343,7 @@
 <!-- /.col-lg-3-->
 <div class="col-lg-3 col-md-6">
 <h4 class="mb-3" id="h4_4"></h4>
-<p id="p_14"></p><a href="contact.html">Go to contact page</a>
+<p id="p_14"></p><a href="{% url 'web:contact' %}">Go to contact page</a>
 <hr class="d-block d-md-none"/>
 </div>
 <!-- /.col-lg-3-->
