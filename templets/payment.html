@@ -81,7 +81,7 @@
 <div class="container"><a class="navbar-brand home" href="{% url 'web:index' %}"><img alt="Obaju logo" class="d-none d-md-inline-block" src="{% get_image_url 8 %}"/><img alt="Obaju logo" class="d-inline-block d-md-none" src="{% get_image_url 9 %}"/><span class="sr-only">Obaju - go to homepage</span></a>
 <div class="navbar-buttons">
 <button class="btn btn-outline-secondary navbar-toggler" data-target="#navigation" data-toggle="collapse" type="button"><span class="sr-only">Toggle navigation</span><i class="fa fa-align-justify"></i></button>
-<button class="btn btn-outline-secondary navbar-toggler" data-target="#search" data-toggle="collapse" type="button"><span class="sr-only">Toggle search</span><i class="fa fa-search"></i></button><a class="btn btn-outline-secondary navbar-toggler" href="{% url 'shop:cart_list' %}"><i class="fa fa-shopping-cart"></i></a>
+<button class="btn btn-outline-secondary navbar-toggler" data-target="#search" data-toggle="collapse" type="submit"><span class="sr-only">Toggle search</span><i class="fa fa-search"></i></button><a class="btn btn-outline-secondary navbar-toggler" href="{% url 'shop:cart_list' %}"><i class="fa fa-shopping-cart"></i></a>
 </div>
 <div class="collapse navbar-collapse" id="navigation">
 <ul class="navbar-nav mr-auto">
@@ -105,7 +105,7 @@
 <div class="input-group">
 <input class="form-control" placeholder="Search" name="search" type="text"/>
 <div class="input-group-append">
-<button class="btn btn-primary" type="button"><i class="fa fa-search"></i></button>
+<button class="btn btn-primary" type="submit"><i class="fa fa-search"></i></button>
 </div>
 </div>
 </form>
@@ -146,7 +146,7 @@
                       <div class="box">
                         <h1>My orders</h1>
                         <p class="lead">Your orders on one place.</p>
-                        <p class="text-muted">If you have any questions, please feel free to <a href="contact.html">contact us</a>, our customer service center is working for you 24/7.</p>
+                        <p class="text-muted">If you have any questions, please feel free to <a href="{% url 'web:contact' %}">contact us</a>, our customer service center is working for you 24/7.</p>
                         <hr>
                         <div class="table-responsive">
                           <table class="table table-hover">
@@ -198,7 +198,7 @@
         <li class="nav-item dropdown menu-large"><a class="nav-link active" href="{% url 'web:index' %}">Home</a></li>
         <li class="nav-item dropdown menu-large"><a class=" nav-link" href="{% url 'web:shop' %}">Shop</a></li>
         <li class="nav-item dropdown menu-large" ><a class="nav-link" href="{% url 'shop:purchesed_list' %}">Order List</a></li>
-        <li class="nav-item dropdown menu-large"><a class="nav-link" href="contact.html">Contact</a></li>
+        <li class="nav-item dropdown menu-large"><a class="nav-link" href="{% url 'web:contact' %}">Contact</a></li>
       </ul>
       <hr/>
       <h4 class="mb-3" id="h4_2"></h4>
@@ -227,7 +227,7 @@
       <!-- /.col-lg-3-->
       <div class="col-lg-3 col-md-6">
       <h4 class="mb-3" id="h4_4">Where to find us</h4>
-      <p id="p_14">Obaju Ltd.13/25 New AvenueNew Heaven45Y 73JEnglandGreat Britain</p><a href="contact.html">Go to contact page</a>
+      <p id="p_14">Obaju Ltd.13/25 New AvenueNew Heaven45Y 73JEnglandGreat Britain</p><a href="{% url 'web:contact' %}">Go to contact page</a>
       <hr class="d-block d-md-none"/>
       </div>
       <!-- /.col-lg-3-->
